@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE65760224CE184300894CE6 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65760124CE184300894CE6 /* Currency.swift */; };
+		CE65760224CE184300894CE6 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65760124CE184300894CE6 /* CurrencyService.swift */; };
 		CE65760424CE185800894CE6 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65760324CE185800894CE6 /* Translate.swift */; };
 		CE65760624CE186E00894CE6 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65760524CE186E00894CE6 /* Weather.swift */; };
 		CECCF7A524CC51BA00D1ABD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCF7A424CC51BA00D1ABD0 /* AppDelegate.swift */; };
@@ -20,6 +20,8 @@
 		CECCF7EB24CCA0E600D1ABD0 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCF7E924CCA0E600D1ABD0 /* CurrencyViewController.swift */; };
 		CECCF7EF24CCA10500D1ABD0 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCF7ED24CCA10500D1ABD0 /* TranslateViewController.swift */; };
 		CECCF7F324CCA12200D1ABD0 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCF7F124CCA12200D1ABD0 /* WeatherViewController.swift */; };
+		CEF91EAC24D2C891004068AC /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF91EAB24D2C891004068AC /* UIViewController+Alert.swift */; };
+		CEF91EAE24D2FA6C004068AC /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF91EAD24D2FA6C004068AC /* Currency.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CE65760124CE184300894CE6 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Currency.swift; path = "Le Baluchon/Model/Currency.swift"; sourceTree = SOURCE_ROOT; };
+		CE65760124CE184300894CE6 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyService.swift; path = "Le Baluchon/Model/CurrencyService.swift"; sourceTree = SOURCE_ROOT; };
 		CE65760324CE185800894CE6 /* Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Translate.swift; path = "Le Baluchon/Model/Translate.swift"; sourceTree = SOURCE_ROOT; };
 		CE65760524CE186E00894CE6 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Weather.swift; path = "Le Baluchon/Model/Weather.swift"; sourceTree = SOURCE_ROOT; };
 		CECCF7A124CC51BA00D1ABD0 /* Le Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Le Baluchon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +52,8 @@
 		CECCF7E924CCA0E600D1ABD0 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyViewController.swift; path = "Le Baluchon/Controller/CurrencyViewController.swift"; sourceTree = SOURCE_ROOT; };
 		CECCF7ED24CCA10500D1ABD0 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslateViewController.swift; path = "Le Baluchon/Controller/TranslateViewController.swift"; sourceTree = SOURCE_ROOT; };
 		CECCF7F124CCA12200D1ABD0 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeatherViewController.swift; path = "Le Baluchon/Controller/WeatherViewController.swift"; sourceTree = SOURCE_ROOT; };
+		CEF91EAB24D2C891004068AC /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		CEF91EAD24D2FA6C004068AC /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +77,8 @@
 		CE65760024CE182300894CE6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CE65760124CE184300894CE6 /* Currency.swift */,
+				CE65760124CE184300894CE6 /* CurrencyService.swift */,
+				CEF91EAD24D2FA6C004068AC /* Currency.swift */,
 				CE65760324CE185800894CE6 /* Translate.swift */,
 				CE65760524CE186E00894CE6 /* Weather.swift */,
 			);
@@ -110,6 +115,7 @@
 		CECCF7A324CC51BA00D1ABD0 /* Le Baluchon */ = {
 			isa = PBXGroup;
 			children = (
+				CEF91EAA24D2C856004068AC /* Extensions */,
 				CE65760024CE182300894CE6 /* Model */,
 				CECCF7C624CC6F5400D1ABD0 /* Controller */,
 				CE65760724CE18D400894CE6 /* Supporting Files */,
@@ -139,6 +145,14 @@
 				CECCF7A824CC51BA00D1ABD0 /* ViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		CEF91EAA24D2C856004068AC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CEF91EAB24D2C891004068AC /* UIViewController+Alert.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,9 +261,11 @@
 				CECCF7F324CCA12200D1ABD0 /* WeatherViewController.swift in Sources */,
 				CECCF7EB24CCA0E600D1ABD0 /* CurrencyViewController.swift in Sources */,
 				CE65760624CE186E00894CE6 /* Weather.swift in Sources */,
+				CEF91EAC24D2C891004068AC /* UIViewController+Alert.swift in Sources */,
+				CEF91EAE24D2FA6C004068AC /* Currency.swift in Sources */,
 				CECCF7A524CC51BA00D1ABD0 /* AppDelegate.swift in Sources */,
 				CECCF7A724CC51BA00D1ABD0 /* SceneDelegate.swift in Sources */,
-				CE65760224CE184300894CE6 /* Currency.swift in Sources */,
+				CE65760224CE184300894CE6 /* CurrencyService.swift in Sources */,
 				CECCF7EF24CCA10500D1ABD0 /* TranslateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

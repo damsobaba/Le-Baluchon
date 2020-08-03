@@ -45,12 +45,7 @@ class TranslateViewController: UIViewController {
             translateButton.isHidden = shown
         }
 
-     
-        private func presentAlert() {
-            let alertVC = UIAlertController(title: "Error", message: "Could not translate the language.", preferredStyle: .alert)
-            alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            present(alertVC, animated: true, completion: nil)
-        }
+
  
 
 }

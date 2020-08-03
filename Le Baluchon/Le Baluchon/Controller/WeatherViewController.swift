@@ -10,7 +10,7 @@ import UIKit
 
 class WeatherViewController: UIViewController {
 
-    
+     // apiKey fd14af8a57ca38e062012f6fc2a2d587
     override func viewDidLoad() {
            super.viewDidLoad()
 
@@ -52,9 +52,4 @@ class WeatherViewController: UIViewController {
      }
 
   
-     private func presentAlert() {
-         let alertVC = UIAlertController(title: "Error", message: "Could not find a weather.", preferredStyle: .alert)
-         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-         present(alertVC, animated: true, completion: nil)
-     }
 }
