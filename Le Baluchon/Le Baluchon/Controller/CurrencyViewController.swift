@@ -13,7 +13,6 @@ class CurrencyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-   // http://data.fixer.io/api/latest?access_key=218e80355485a2d12beb99bfb1a1489c
     
     @IBOutlet weak var euroTextField: UITextField!
     @IBOutlet weak var dollarTextField: UITextField!
@@ -23,52 +22,29 @@ class CurrencyViewController: UIViewController {
     let currencyService = CurrencyService()
     
     @IBAction func convertTapedButton(_ sender: Any) {
-        DispatchQueue.main.async {
-            self.toggleActivityIndicator(shown: true)
-            self.currencyService.getCurrency { result in
-                switch result {
-                case .success(let currency):
-                    self.update(currency: currency)
-                case .failure(let error):
-                    self.presentAlert()
-                   print(error)
+        self.toggleActivityIndicator(shown: false)
+        self.currencyService.getCurrency { result in
+            switch result {
+            case .success(let rate):
+                DispatchQueue.main.async {
+                    guard let euroAmountText = self.euroTextField.text else { return }
+                    guard let euroAmount = Double(euroAmountText) else { return }
+                    self.dollarTextField.text = String(euroAmount*rate)
                 }
+            case .failure(let error):
+                self.presentAlert()
+                print(error)
             }
         }
-     
-//               currencyService.getCurrency { (success, currency) in
-//                   self.toggleActivityIndicator(shown: false)
-//                       if success, let currency = currency {
-//                        self.update(currency: currency) }
-//                       }else {
-//                           self.presentAlert()
-//                       }
-//                   }
     }
     
     @IBAction func  dismissKeyboard(_ sender: UITapGestureRecognizer) {
         dollarTextField.resignFirstResponder()
         euroTextField.resignFirstResponder()
     }
-    
-   private func update(currency: Currency) {
-//       euroTextField.text = currency.base
-    dollarTextField.text = "\(currency.rates) "
-   
-   }
-
-    
     private func toggleActivityIndicator(shown: Bool) {
         activityIndicator.isHidden = !shown
         convertButton.isHidden = shown
     }
-    
-    
-   
-    
-    
-    
-    
-    
-    
 }
+// enlever text field pour dollar.text 

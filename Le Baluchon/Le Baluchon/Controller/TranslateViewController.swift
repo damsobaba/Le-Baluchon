@@ -12,11 +12,13 @@ class TranslateViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        adjustCorner()
 }
     
     
-    @IBOutlet weak var englishTextField: UITextField!
-    @IBOutlet weak var frenchTextField: UITextField!
+    @IBOutlet weak var frenchTranslateTextView: UITextView!
+    @IBOutlet weak var englishTranslateTexView: UITextView!
+    
     @IBOutlet weak var translateButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -25,10 +27,7 @@ class TranslateViewController: UIViewController {
     }
     
     
-    @IBAction func  dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        englishTextField.resignFirstResponder()
-        frenchTextField.resignFirstResponder()
-      }
+   
 
     func searchWeither() {
             toggleActivityIndicator(shown: true)
@@ -46,6 +45,9 @@ class TranslateViewController: UIViewController {
         }
 
 
- 
+    func adjustCorner() {
+        frenchTranslateTextView.layer.cornerRadius = 10
+        englishTranslateTexView.layer.cornerRadius = 10
+    }
 
 }

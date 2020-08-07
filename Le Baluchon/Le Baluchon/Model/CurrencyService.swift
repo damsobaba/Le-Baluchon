@@ -13,49 +13,37 @@ enum NetworkError: Error {
 }
 
 class CurrencyService {
-    
-    
-    
     private var task: URLSessionDataTask?
     
     private var currencySession: URLSession
-    
     
     init(currencySession: URLSession = URLSession(configuration: .default)) {
         self.currencySession = currencySession
         
     }
-    func getCurrency(callback: @escaping (Result<Currency, NetworkError>) -> Void) {
-//        let request = CurrencyService.currencyUrl
+    func getCurrency(callback: @escaping (Result<Double, NetworkError>) -> Void) {
+        //        let request = CurrencyService.currencyUrl
         guard let url = URL(string: "http://data.fixer.io/api/latest?access_key=218e80355485a2d12beb99bfb1a1489c&symbols=USD") else {return}
         
-        
         task?.cancel()
+        
         task = currencySession.dataTask(with: url) { (data, response, error) in
-       
-                guard let data = data, error == nil else {
-                    callback(.failure(.noData))
-                    return
-                }
+            guard let data = data, error == nil else {
+                callback(.failure(.noData))
+                return
+            }
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                callback(.failure(.incorrectResponse))
+                return
+            }
+            guard let responseJSON = try? JSONDecoder().decode(Currency.self, from: data) else {
                 
-                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    callback(.failure(.incorrectResponse))
-                    return
-                }
-                
-                guard let responseJSON = try? JSONDecoder().decode(Currency.self, from: data) else {
-                    
-                    callback(.failure(.undecodableData))
-                    return
-                }
-                
-                callback(.success(responseJSON))
-                print(responseJSON)
-                
-            
+                callback(.failure(.undecodableData))
+                return
+            }
+            callback(.success(responseJSON.rates.usd))
+            print(responseJSON)
         }
         task?.resume()
-        
-        
     }
 }

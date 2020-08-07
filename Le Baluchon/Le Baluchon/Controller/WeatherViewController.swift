@@ -9,47 +9,52 @@
 import UIKit
 
 class WeatherViewController: UIViewController {
-
-     // apiKey fd14af8a57ca38e062012f6fc2a2d587
+    
+    @IBOutlet weak var NEWyORKLabel: UILabel!
+    
+    @IBOutlet weak var newYorkSkyLabel: UILabel!
+    
+    
+    @IBOutlet weak var newYorkWindSpeedLabel: UILabel!
+    
+    
+    @IBOutlet weak var newYorkSkyImage: UIImageView!
+    
+    let weatherService = WeatherService()
+    
+    
+    
     override func viewDidLoad() {
-           super.viewDidLoad()
-
-           // Do any additional setup after loading the view.
-       }
-    
-    @IBOutlet weak var locationTextField: UITextField!
-    @IBOutlet weak var destinationTextField: UITextField!
-    @IBOutlet weak var searchWeatherButton: UIButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-    
-    
-    
-    @IBAction func tappedSearchButton(_ sender: Any) {
+        super.viewDidLoad()
+        weatherUpdate()
     }
     
     
-    @IBAction func  dismissKeyboard(_ sender: UITapGestureRecognizer) {
+    
+    private func weatherUpdate () {
+        self.weatherService.getWeather { result in
+            switch result {
+            case .success(let weatherDescription):
+                DispatchQueue.main.async {
+                    self.refreshViews(weatherData: weatherDescription)
+                }
+            case .failure(let error):
+                self.presentAlert()
+                print(error)
+            }
+        }
+    }
+    
+    
+    private func refreshViews(weatherData: WeatherData){
         
-        locationTextField.resignFirstResponder()
-        destinationTextField.resignFirstResponder()
-           
-       }
-
-    func searchWeither() {
-         toggleActivityIndicator(shown: true)
-         //LogoService.shared.getLogo(domain: domain) { (success, data) in
-             self.toggleActivityIndicator(shown: false)
-       // if  success, let data = data {
-       //          self.updateImage(with: data)
-          //   } else {
-           //      self.presentAlert()
-             }
-         
-     private func toggleActivityIndicator(shown: Bool) {
-        activityIndicator.isHidden = !shown
-         searchWeatherButton.isHidden = shown
-     }
-
-  
+        
+        self.newYorkWindSpeedLabel.text = String(Int(weatherData.list[0].main["temp"]!)) + "°"
+        self.newYorkWindSpeedLabel.text = String(Int(weatherData.list[0].main["temp_min"]!)) + "° / " + String(Int(weatherData.list[0].main["temp_max"]!)) + "°"
+        self.NEWyORKLabel.text = "humidité: " + String(Int(weatherData.list[0].main["humidity"]!)) + " %"
+        self.newYorkWindSpeedLabel.text = "vent: " + String(Int(weatherData.list[0].wind["speed"]!)) + " km/h"
+           self.newYorkSkyImage.image = UIImage(named: weatherData.list[0].weather[0].icon)
+        self.newYorkSkyLabel.text = weatherData.list[0].weather[0].description
+    }
 }
+
