@@ -48,6 +48,7 @@ class TranslateViewController: UIViewController {
     func adjustCorner() {
         frenchTranslateTextView.layer.cornerRadius = 10
         englishTranslateTexView.layer.cornerRadius = 10
+       
     }
 
 }
