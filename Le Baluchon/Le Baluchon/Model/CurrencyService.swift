@@ -21,7 +21,7 @@ class CurrencyService {
         self.currencySession = currencySession
         
     }
-    func getCurrency(callback: @escaping (Result<Double, NetworkError>) -> Void) {
+    func getCurrency( callback: @escaping (Result<Double, NetworkError>) -> Void) {
         //        let request = CurrencyService.currencyUrl
         guard let url = URL(string: "http://data.fixer.io/api/latest?access_key=218e80355485a2d12beb99bfb1a1489c&symbols=USD") else {return}
         

@@ -7,7 +7,7 @@
 //
 
 import Foundation
- // apey api.openweathermap.org/data/2.5/group?id=5128581,6452019&units=metric&appid=fd14af8a57ca38e062012f6fc2a2d587
+
 
 enum WeatherNetworkError: Error {
     case noData, incorrectResponse, undecodableData
@@ -29,7 +29,7 @@ class WeatherService {
         task?.cancel()
     
         task = weatherSession.dataTask(with: url) { (data, response, error) in
-//             DispatchQueue.main.async {
+
             guard let data = data, error == nil else {
                 callback(.failure(.noData))
                 return
@@ -45,7 +45,7 @@ class WeatherService {
             }
             callback(.success(responseJSON))
             print(responseJSON)
-//        }
+
         }
         task?.resume()
     }

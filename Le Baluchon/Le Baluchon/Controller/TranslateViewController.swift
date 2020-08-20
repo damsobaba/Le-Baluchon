@@ -14,6 +14,7 @@ class TranslateViewController: UIViewController {
         super.viewDidLoad()
         adjustCorner()
 }
+    let translateService = TranslateService()
     
     
     @IBOutlet weak var frenchTranslateTextView: UITextView!
@@ -24,20 +25,29 @@ class TranslateViewController: UIViewController {
     
     
     @IBAction func translateTappedButton(_ sender: Any) {
+        toggleActivityIndicator(shown: true)
+        guard let text = frenchTranslateTextView.text else { return }
+        self.translateService.getTranslation(text: text){ result in
+            switch result {
+            case .success(let translates):
+                DispatchQueue.main.async {
+                    self.toggleActivityIndicator(shown: false)
+                    self.refreshScreen(data: translates, textView: self.englishTranslateTexView)
+                 
+                }
+            case .failure(let error):
+                self.presentAlert()
+                print(error)
+            }
+        }
     }
     
     
-   
+   private func refreshScreen(data: Translate, textView: UITextView) {
+          englishTranslateTexView.text = data.data.translations[0].translatedText
+    }
 
-    func searchWeither() {
-            toggleActivityIndicator(shown: true)
-            //LogoService.shared.getLogo(domain: domain) { (success, data) in
-                self.toggleActivityIndicator(shown: false)
-          // if  success, let data = data {
-          //          self.updateImage(with: data)
-             //   } else {
-              //      self.presentAlert()
-                }
+    
             
         private func toggleActivityIndicator(shown: Bool) {
            activityIndicator.isHidden = !shown
@@ -51,4 +61,6 @@ class TranslateViewController: UIViewController {
        
     }
 
+    
+    
 }

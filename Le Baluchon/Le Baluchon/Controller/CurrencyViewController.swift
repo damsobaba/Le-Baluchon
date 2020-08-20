@@ -22,11 +22,12 @@ class CurrencyViewController: UIViewController {
     let currencyService = CurrencyService()
     
     @IBAction func convertTapedButton(_ sender: Any) {
-        self.toggleActivityIndicator(shown: false)
+        self.toggleActivityIndicator(shown: true)
         self.currencyService.getCurrency { result in
             switch result {
             case .success(let rate):
                 DispatchQueue.main.async {
+                       self.toggleActivityIndicator(shown: false)
                     guard let euroAmountText = self.euroTextField.text else { return }
                     guard let euroAmount = Double(euroAmountText) else { return }
                     self.dollarTextField.text = String(euroAmount*rate)
@@ -47,4 +48,3 @@ class CurrencyViewController: UIViewController {
         convertButton.isHidden = shown
     }
 }
-// enlever text field pour dollar.text 
