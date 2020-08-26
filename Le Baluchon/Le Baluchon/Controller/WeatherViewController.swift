@@ -17,7 +17,6 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var fontenaySkyImage: UIImageView!
     
     
-    
     let weatherService = WeatherService()
     
     

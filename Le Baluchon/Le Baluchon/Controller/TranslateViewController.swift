@@ -32,8 +32,7 @@ class TranslateViewController: UIViewController {
             case .success(let translates):
                 DispatchQueue.main.async {
                     self.toggleActivityIndicator(shown: false)
-                    self.refreshScreen(data: translates, textView: self.englishTranslateTexView)
-                 
+                    self.refreshView(data: translates) 
                 }
             case .failure(let error):
                 self.presentAlert()
@@ -43,7 +42,7 @@ class TranslateViewController: UIViewController {
     }
     
     
-   private func refreshScreen(data: Translate, textView: UITextView) {
+   private func refreshView(data: Translate) {
           englishTranslateTexView.text = data.data.translations[0].translatedText
     }
 
