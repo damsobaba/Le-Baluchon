@@ -1,0 +1,84 @@
+
+{
+    "cnt": 2,
+    "list": [
+        {
+            "coord": {
+                "lon": -74.01,
+                "lat": 40.71
+            },
+            "sys": {
+                "country": "US",
+                "timezone": -14400,
+                "sunrise": 1599993318,
+                "sunset": 1600038511
+            },
+            "weather": [
+                {
+                    "id": 804,
+                    "main": "Clouds",
+                    "description": "overcast clouds",
+                    "icon": "04d"
+                }
+            ],
+            "main": {
+                "temp": 23.52,
+                "feels_like": 23.26,
+                "temp_min": 22.78,
+                "temp_max": 24.44,
+                "pressure": 1021,
+                "humidity": 73
+            },
+            "visibility": 10000,
+            "wind": {
+                "speed": 4.6,
+                "deg": 120
+            },
+            "clouds": {
+                "all": 90
+            },
+            "dt": 1600013602,
+            "id": 5128581,
+            "name": "New York"
+        },
+        {
+            "coord": {
+                "lon": 2.35,
+                "lat": 48.85
+            },
+            "sys": {
+                "country": "FR",
+                "timezone": 7200,
+                "sunrise": 1599974692,
+                "sunset": 1600020495
+            },
+            "weather": [
+                {
+                    "id": 800,
+                    "main": "Clear",
+                    "description": "clear sky",
+                    "icon": "01d"
+                }
+            ],
+            "main": {
+                "temp": 27.67,
+                "feels_like": 25.62,
+                "temp_min": 25.56,
+                "temp_max": 29.44,
+                "pressure": 1024,
+                "humidity": 28
+            },
+            "visibility": 10000,
+            "wind": {
+                "speed": 2.1,
+                "deg": 120
+            },
+            "clouds": {
+                "all": 0
+            },
+            "dt": 1600013502,
+            "id": 2968815,
+            "name": "Paris"
+        }
+    ]
+}

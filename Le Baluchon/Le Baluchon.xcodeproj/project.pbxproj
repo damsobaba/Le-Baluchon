@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE1FDE29250D2451004940CE /* TranslationServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1FDE28250D2451004940CE /* TranslationServiceTest.swift */; };
+		CE1FDE2B250D247D004940CE /* WeatherServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1FDE2A250D247D004940CE /* WeatherServiceTest.swift */; };
+		CE5C8531250E496600E140DD /* HttpEngineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5C8530250E496600E140DD /* HttpEngineTest.swift */; };
+		CE5C8533250E7E3D00E140DD /* Currency.Json in Resources */ = {isa = PBXBuildFile; fileRef = CE5C8532250E7E3D00E140DD /* Currency.Json */; };
+		CE5C8535250E7F0700E140DD /* Weather.Json in Resources */ = {isa = PBXBuildFile; fileRef = CE5C8534250E7F0700E140DD /* Weather.Json */; };
 		CE65760224CE184300894CE6 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65760124CE184300894CE6 /* CurrencyService.swift */; };
 		CE65760424CE185800894CE6 /* Weaher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65760324CE185800894CE6 /* Weaher.swift */; };
 		CE65760624CE186E00894CE6 /* TranslateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE65760524CE186E00894CE6 /* TranslateService.swift */; };
@@ -15,7 +20,7 @@
 		CECCF7AC24CC51BA00D1ABD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECCF7AA24CC51BA00D1ABD0 /* Main.storyboard */; };
 		CECCF7AE24CC51BE00D1ABD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECCF7AD24CC51BE00D1ABD0 /* Assets.xcassets */; };
 		CECCF7B124CC51BE00D1ABD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECCF7AF24CC51BE00D1ABD0 /* LaunchScreen.storyboard */; };
-		CECCF7BC24CC51BE00D1ABD0 /* Le_BaluchonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCF7BB24CC51BE00D1ABD0 /* Le_BaluchonTests.swift */; };
+		CECCF7BC24CC51BE00D1ABD0 /* CurrencyServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCF7BB24CC51BE00D1ABD0 /* CurrencyServiceTest.swift */; };
 		CECCF7EB24CCA0E600D1ABD0 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCF7E924CCA0E600D1ABD0 /* CurrencyViewController.swift */; };
 		CECCF7EF24CCA10500D1ABD0 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCF7ED24CCA10500D1ABD0 /* TranslateViewController.swift */; };
 		CECCF7F324CCA12200D1ABD0 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECCF7F124CCA12200D1ABD0 /* WeatherViewController.swift */; };
@@ -43,6 +48,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE1FDE28250D2451004940CE /* TranslationServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationServiceTest.swift; sourceTree = "<group>"; };
+		CE1FDE2A250D247D004940CE /* WeatherServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceTest.swift; sourceTree = "<group>"; };
+		CE5C8530250E496600E140DD /* HttpEngineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpEngineTest.swift; sourceTree = "<group>"; };
+		CE5C8532250E7E3D00E140DD /* Currency.Json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Currency.Json; sourceTree = "<group>"; };
+		CE5C8534250E7F0700E140DD /* Weather.Json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Weather.Json; sourceTree = "<group>"; };
 		CE65760124CE184300894CE6 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyService.swift; path = "Le Baluchon/Model/Currency/CurrencyService.swift"; sourceTree = SOURCE_ROOT; };
 		CE65760324CE185800894CE6 /* Weaher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Weaher.swift; path = "Le Baluchon/Model/Weather/Weaher.swift"; sourceTree = SOURCE_ROOT; };
 		CE65760524CE186E00894CE6 /* TranslateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslateService.swift; path = "Le Baluchon/Model/Translate/TranslateService.swift"; sourceTree = SOURCE_ROOT; };
@@ -54,7 +64,7 @@
 		CECCF7B024CC51BE00D1ABD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CECCF7B224CC51BE00D1ABD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CECCF7B724CC51BE00D1ABD0 /* Le BaluchonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Le BaluchonTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CECCF7BB24CC51BE00D1ABD0 /* Le_BaluchonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Le_BaluchonTests.swift; sourceTree = "<group>"; };
+		CECCF7BB24CC51BE00D1ABD0 /* CurrencyServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServiceTest.swift; sourceTree = "<group>"; };
 		CECCF7BD24CC51BE00D1ABD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CECCF7E924CCA0E600D1ABD0 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CurrencyViewController.swift; path = "Le Baluchon/Controller/CurrencyViewController.swift"; sourceTree = SOURCE_ROOT; };
 		CECCF7ED24CCA10500D1ABD0 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslateViewController.swift; path = "Le Baluchon/Controller/TranslateViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -90,6 +100,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE5C8536250E7FB100E140DD /* CurrencyTest */ = {
+			isa = PBXGroup;
+			children = (
+				CECCF7BB24CC51BE00D1ABD0 /* CurrencyServiceTest.swift */,
+				CE5C8532250E7E3D00E140DD /* Currency.Json */,
+			);
+			path = CurrencyTest;
+			sourceTree = "<group>";
+		};
+		CE5C8537250E7FC600E140DD /* WeatherTest */ = {
+			isa = PBXGroup;
+			children = (
+				CE1FDE2A250D247D004940CE /* WeatherServiceTest.swift */,
+				CE5C8534250E7F0700E140DD /* Weather.Json */,
+			);
+			path = WeatherTest;
+			sourceTree = "<group>";
+		};
+		CE5C8538250E7FD800E140DD /* TranslationTest */ = {
+			isa = PBXGroup;
+			children = (
+				CE1FDE28250D2451004940CE /* TranslationServiceTest.swift */,
+				CEF20B6624F28F8C006B50A7 /* Translation.Json */,
+			);
+			path = TranslationTest;
+			sourceTree = "<group>";
+		};
 		CE65760024CE182300894CE6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,10 +186,12 @@
 		CECCF7BA24CC51BE00D1ABD0 /* Le BaluchonTests */ = {
 			isa = PBXGroup;
 			children = (
-				CECCF7BB24CC51BE00D1ABD0 /* Le_BaluchonTests.swift */,
-				CEF20B6A24F2E248006B50A7 /* FackResponseData.swift */,
 				CEF20B6824F2DD27006B50A7 /* URLSessionFake.swift */,
-				CEF20B6624F28F8C006B50A7 /* Translation.Json */,
+				CEF20B6A24F2E248006B50A7 /* FackResponseData.swift */,
+				CE5C8530250E496600E140DD /* HttpEngineTest.swift */,
+				CE5C8536250E7FB100E140DD /* CurrencyTest */,
+				CE5C8537250E7FC600E140DD /* WeatherTest */,
+				CE5C8538250E7FD800E140DD /* TranslationTest */,
 				CECCF7BD24CC51BE00D1ABD0 /* Info.plist */,
 			);
 			path = "Le BaluchonTests";
@@ -294,7 +333,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE5C8533250E7E3D00E140DD /* Currency.Json in Resources */,
 				CEF20B6724F28F8C006B50A7 /* Translation.Json in Resources */,
+				CE5C8535250E7F0700E140DD /* Weather.Json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,8 +369,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE1FDE2B250D247D004940CE /* WeatherServiceTest.swift in Sources */,
 				CEF20B6B24F2E248006B50A7 /* FackResponseData.swift in Sources */,
-				CECCF7BC24CC51BE00D1ABD0 /* Le_BaluchonTests.swift in Sources */,
+				CE1FDE29250D2451004940CE /* TranslationServiceTest.swift in Sources */,
+				CE5C8531250E496600E140DD /* HttpEngineTest.swift in Sources */,
+				CECCF7BC24CC51BE00D1ABD0 /* CurrencyServiceTest.swift in Sources */,
 				CEF20B6924F2DD27006B50A7 /* URLSessionFake.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,7 +459,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -469,7 +513,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -486,7 +530,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3NYLP3F6GN;
 				INFOPLIST_FILE = "Le Baluchon/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -505,7 +549,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3NYLP3F6GN;
 				INFOPLIST_FILE = "Le Baluchon/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -525,7 +569,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3NYLP3F6GN;
 				INFOPLIST_FILE = "Le BaluchonTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -547,7 +591,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3NYLP3F6GN;
 				INFOPLIST_FILE = "Le BaluchonTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

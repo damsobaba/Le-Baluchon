@@ -11,7 +11,7 @@ class FakeResponseData {
     // MARK: - Data
     static var currencyCorrectData: Data? {
         let bundle = Bundle(for: FakeResponseData.self)
-        let url = bundle.url(forResource: "Currency", withExtension: "json")!
+        let url = bundle.url(forResource: "Currency", withExtension: ".json")!
         return try! Data(contentsOf: url)
     }
 
@@ -21,15 +21,15 @@ class FakeResponseData {
 
     // MARK: - Response
     static let responseOK = HTTPURLResponse(
-        url: URL(string: "http://data.fixer.io/api/latest?access_key=218e80355485a2d12beb99bfb1a1489c&symbols=USD")!,
+        url: URL(string: "https://openclassrooms.com")!,
         statusCode: 200, httpVersion: nil, headerFields: [:])!
 
     static let responseKO = HTTPURLResponse(
-        url: URL(string: "http://data.fixer.io/api/latest?access_key=218e80355485a2d12beb99bfb1a1489c&symbols=USD")!,
+        url: URL(string: "https://openclassrooms.com")!,
         statusCode: 500, httpVersion: nil, headerFields: [:])!
 
 
     // MARK: - Error
-    class CurrencyError: Error {}
-    static let error = CurrencyError()
+    class HttpEngineError: Error {}
+    static let error = HttpEngineError()
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TranslateViewController: UIViewController {
+class TranslateViewController: UIViewController, UITextViewDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +23,15 @@ class TranslateViewController: UIViewController {
     @IBOutlet weak var translateButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    
-    @IBAction func translateTappedButton(_ sender: Any) {
+    @IBAction func DismissKeyboard(_ sender: UITapGestureRecognizer) {
+           frenchTranslateTextView.resignFirstResponder()
+        englishTranslateTexView.resignFirstResponder()
+       }
+//      func textFieldShouldReturn(_ textField: UITextView) -> Bool {
+//          frenchTranslateTextView.resignFirstResponder()
+//          return true
+//      }
+   @IBAction func translateTappedButton(_ sender: Any) {
         toggleActivityIndicator(shown: true)
         guard let text = frenchTranslateTextView.text else { return }
         self.translateService.getTranslation(text: text){ result in
@@ -32,7 +39,7 @@ class TranslateViewController: UIViewController {
             case .success(let translates):
                 DispatchQueue.main.async {
                     self.toggleActivityIndicator(shown: false)
-                    self.refreshView(data: translates) 
+                        self.refreshView(data: translates) 
                 }
             case .failure(let error):
                 self.presentAlert()
@@ -43,8 +50,9 @@ class TranslateViewController: UIViewController {
     
     
    private func refreshView(data: Translate) {
-          englishTranslateTexView.text = data.data.translations[0].translatedText
+    englishTranslateTexView.text = data.data.translations[0].translatedText
     }
+    
 
     
             
@@ -57,9 +65,8 @@ class TranslateViewController: UIViewController {
     func adjustCorner() {
         frenchTranslateTextView.layer.cornerRadius = 10
         englishTranslateTexView.layer.cornerRadius = 10
-       
+        translateButton.layer.cornerRadius = 10
     }
-
-    
-    
 }
+
+   

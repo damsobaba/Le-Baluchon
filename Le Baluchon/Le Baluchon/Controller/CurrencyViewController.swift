@@ -13,6 +13,7 @@ class CurrencyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    //    var rates: Double = 0.0
     
     @IBOutlet weak var euroTextField: UITextField!
     @IBOutlet weak var dollarTextField: UITextField!
@@ -20,21 +21,29 @@ class CurrencyViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     let currencyService = CurrencyService()
-    
+    @IBAction func DismissKeyboard(_ sender: UITapGestureRecognizer) {
+        euroTextField.resignFirstResponder()
+    }
     @IBAction func convertTapedButton(_ sender: Any) {
+        
         self.toggleActivityIndicator(shown: true)
         self.currencyService.getCurrency { result in
             switch result {
             case .success(let rate):
                 DispatchQueue.main.async {
-                       self.toggleActivityIndicator(shown: false)
+                    //                    let usd = rate.rates.usd
+                    //                    self.rates = usd
+                    self.toggleActivityIndicator(shown: false)
                     guard let euroAmountText = self.euroTextField.text else { return }
                     guard let euroAmount = Double(euroAmountText) else { return }
                     self.dollarTextField.text = String(euroAmount*rate)
                 }
             case .failure(let error):
+                
                 self.presentAlert()
                 print(error)
+                
+                
             }
         }
     }
