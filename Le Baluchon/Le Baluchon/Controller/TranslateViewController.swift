@@ -27,10 +27,7 @@ class TranslateViewController: UIViewController, UITextViewDelegate{
            frenchTranslateTextView.resignFirstResponder()
         englishTranslateTexView.resignFirstResponder()
        }
-//      func textFieldShouldReturn(_ textField: UITextView) -> Bool {
-//          frenchTranslateTextView.resignFirstResponder()
-//          return true
-//      }
+
    @IBAction func translateTappedButton(_ sender: Any) {
         toggleActivityIndicator(shown: true)
         guard let text = frenchTranslateTextView.text else { return }

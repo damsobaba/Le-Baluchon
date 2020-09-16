@@ -9,13 +9,23 @@
 import Foundation
 class FakeResponseData {
     // MARK: - Data
-    static var currencyCorrectData: Data? {
+    static var correctData: Data? {
         let bundle = Bundle(for: FakeResponseData.self)
         let url = bundle.url(forResource: "Currency", withExtension: ".json")!
         return try! Data(contentsOf: url)
     }
+    static var correctDataWeather: Data? {
+           let bundle = Bundle(for: FakeResponseData.self)
+           let url = bundle.url(forResource: "Weather", withExtension: ".json")!
+           return try! Data(contentsOf: url)
+       }
+    static var correctDataTranslate: Data? {
+           let bundle = Bundle(for: FakeResponseData.self)
+           let url = bundle.url(forResource: "Translation", withExtension: ".json")!
+           return try! Data(contentsOf: url)
+       }
 
-    static let quoteIncorrectData = "erreur".data(using: .utf8)!
+    static let incorrectData = "erreur".data(using: .utf8)!
 
     //static let imageData = "image".data(using: .utf8)!
 

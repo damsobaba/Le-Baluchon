@@ -11,114 +11,34 @@ import XCTest
 
 class ClassCurrencyTests: XCTestCase {
     
-    func testGetQuoteShouldPostFailedCallback() {
+    func testRequestMethod_WhenErrorIsGiven_ThenShouldReturnAnError() {
+        let httpEngine = HTTPEngine(session: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error))
+        let httpClient = HTTPClient(httpEngine: httpEngine)
         // Given
-        let currencyService = CurrencyService(currencySession: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error),
-          // When
-    let expectation = XCTestExpectation(description: "Wait for queue change.")
+        let currencyService = CurrencyService(httpClient: httpClient)
+        // When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
         currencyService.getCurrency { result  in
-            // Then
-            XCTAssertFalse(success)
-            XCTAssertNil(currency)
+            guard case .failure(let error) = result else {return}
+            XCTAssertNotNil(error)
             expectation.fulfill()
         }
-
+        
         wait(for: [expectation], timeout: 0.01)
     }
-
-    func testGetQuoteShouldPostFailedCallbackIfNoData() {
+    func testRequestMethod_WhenResponseIsGiven_ThenShouldReturnData() {
+        let httpEngine = HTTPEngine(session: URLSessionFake(data: FakeResponseData.correctData, response: FakeResponseData.responseOK, error: nil))
+        let httpClient = HTTPClient(httpEngine: httpEngine)
         // Given
-        let currencyService = CurrencyService(
-            currencySession: URLSessionFake(data: nil, response: nil, error: nil),
-           
-
+        let currencyService = CurrencyService(httpClient: httpClient)
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
-
-        currencyService.getCurrency { (success, currency) in
-            // Then
-            XCTAssertFalse(success)
-            XCTAssertNil(currency)
+        currencyService.getCurrency { result  in
+            guard case .success(let data) = result else {return}
+            XCTAssertNotNil(data)
             expectation.fulfill()
         }
-
-        wait(for: [expectation], timeout: 0.01)
-    }
-
-    func testGetQuoteShouldPostFailedCallbackIfIncorrectResponse() {
-        // Given
-        let quoteService = QuoteService(
-            quoteSession: URLSessionFake(
-                data: FakeResponseData.quoteCorrectData,
-                response: FakeResponseData.responseKO,
-                error: nil),
-            imageSession: URLSessionFake(data: nil, response: nil, error: nil))
-
-        // When
-        let expectation = XCTestExpectation(description: "Wait for queue change.")
-        quoteService.getQuote { (success, quote) in
-            // Then
-            XCTAssertFalse(success)
-            XCTAssertNil(quote)
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 0.01)
-    }
-
-    func testGetQuoteShouldPostFailedCallbackIfIncorrectData() {
-        // Given
-        let quoteService = QuoteService(
-            quoteSession: URLSessionFake(
-                data: FakeResponseData.quoteIncorrectData,
-                response: FakeResponseData.responseOK,
-                error: nil),
-            imageSession: URLSessionFake(data: nil, response: nil, error: nil))
-
-        // When  
-        let expectation = XCTestExpectation(description: "Wait for queue change.")
-        quoteService.getQuote { (success, quote) in
-            // Then
-            XCTAssertFalse(success)
-            XCTAssertNil(quote)
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 0.01)
-    }
-
-
-
-    func testGetQuoteShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
-        // Given
-        let quoteService = QuoteService(
-            quoteSession: URLSessionFake(
-                data: FakeResponseData.quoteCorrectData,
-                response: FakeResponseData.responseOK,
-                error: nil),
-            imageSession: URLSessionFake(
-                data: FakeResponseData.imageData,
-                response: FakeResponseData.responseOK,
-                error: nil))
-
-        // When
-        let expectation = XCTestExpectation(description: "Wait for queue change.")
-        quoteService.getQuote { (success, quote) in
-            // Then
-            XCTAssertTrue(success)
-            XCTAssertNotNil(quote)
-
-            let text = "Face your deficiencies and acknowledge them; but do not let them master you. Let them teach you patience, sweetness, insight."
-            let author = "Helen Keller"
-            let imageData = "image".data(using: .utf8)!
-
-            XCTAssertEqual(text, quote!.text)
-            XCTAssertEqual(author, quote!.author)
-            XCTAssertEqual(imageData, quote!.imageData)
-
-            expectation.fulfill()
-        }
-
+        
         wait(for: [expectation], timeout: 0.01)
     }
 }
