@@ -29,7 +29,7 @@ final class HTTPClient {
                 return
             }
             guard let dataDecoded = try? JSONDecoder().decode(T.self, from: data) else {
-                callback(.failure(.undecodableData))
+                callback(.failure(.noData))
                 return
             }
             callback(.success(dataDecoded))

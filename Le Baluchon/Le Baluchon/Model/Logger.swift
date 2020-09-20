@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
+/// provide details in the console about the API  calls
 struct Logger {
 
     // MARK: - Properties

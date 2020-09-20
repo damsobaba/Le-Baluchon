@@ -11,7 +11,8 @@ import XCTest
 
 class WeatherServiceTest: XCTestCase {
 
-    
+     // MARK: - Properties
+    /// error case
     func testRequestMethod_WhenErrorIsGiven_ThenShouldReturnAnError() {
         let httpEngine = HTTPEngine(session: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error))
         let httpClient = HTTPClient(httpEngine: httpEngine)
@@ -27,6 +28,7 @@ class WeatherServiceTest: XCTestCase {
 
         wait(for: [expectation], timeout: 0.01)
     }
+    /// succes case
     func testRequestMethod_WhenResponseIsGiven_ThenShouldReturnData() {
         let httpEngine = HTTPEngine(session: URLSessionFake(data: FakeResponseData.correctDataWeather, response: FakeResponseData.responseOK, error: nil))
         let httpClient = HTTPClient(httpEngine: httpEngine)
@@ -37,10 +39,8 @@ class WeatherServiceTest: XCTestCase {
         weatherService.getWeather { result  in
             guard case .success(let data) = result else {return}
            XCTAssertNotNil(data)
-        
             expectation.fulfill()
         }
-
         wait(for: [expectation], timeout: 0.01)
     }
 }

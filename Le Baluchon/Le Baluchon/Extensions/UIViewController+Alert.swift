@@ -8,9 +8,15 @@
 
 import UIKit
 extension UIViewController {
+    ///present allert
    func presentAlert() {
-          let alertVC = UIAlertController(title: "Error", message: "they have been a error", preferredStyle: .alert)
+          let alertVC = UIAlertController(title: "Error", message: "An error as occured", preferredStyle: .alert)
           alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
           present(alertVC, animated: true, completion: nil)
       }
+    func presentAlertWrongNumber() {
+           let alertVC = UIAlertController(title: "Error", message: "Please enter a correct ammount", preferredStyle: .alert)
+           alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+           present(alertVC, animated: true, completion: nil)
+       }
 }

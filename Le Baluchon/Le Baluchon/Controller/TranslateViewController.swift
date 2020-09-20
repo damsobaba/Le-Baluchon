@@ -8,27 +8,43 @@
 
 import UIKit
 
-class TranslateViewController: UIViewController, UITextViewDelegate{
+class TranslateViewController: UIViewController {
+    
+    // MARK: - Outlets
+    @IBOutlet weak var frenchTranslateTextView: UITextView!
+    @IBOutlet weak var englishTranslateTexView: UITextView!
+    @IBOutlet weak var translateButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+     let translateService = TranslateService()
+    // MARK: - Properties
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         adjustCorner()
-}
-    let translateService = TranslateService()
+    }
+  
+    private func refreshView(data: Translate) {
+        englishTranslateTexView.text = data.data.translations[0].translatedText
+    }
+    ///enable to show activiy controler while loading
+    private func toggleActivityIndicator(shown: Bool) {
+        activityIndicator.isHidden = !shown
+        translateButton.isHidden = shown
+    }
+    func adjustCorner() {
+        frenchTranslateTextView.layer.cornerRadius = 10
+        englishTranslateTexView.layer.cornerRadius = 10
+        translateButton.layer.cornerRadius = 10
+    }
     
-    
-    @IBOutlet weak var frenchTranslateTextView: UITextView!
-    @IBOutlet weak var englishTranslateTexView: UITextView!
-    
-    @IBOutlet weak var translateButton: UIButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-    @IBAction func DismissKeyboard(_ sender: UITapGestureRecognizer) {
-           frenchTranslateTextView.resignFirstResponder()
+    // MARK: - Actions
+    @IBAction func DismissKeyboard(_ sender: UITapGestureRecognizer) { // enable to leave the keyboard
+        frenchTranslateTextView.resignFirstResponder()
         englishTranslateTexView.resignFirstResponder()
-       }
-
-   @IBAction func translateTappedButton(_ sender: Any) {
+    }
+    /// translate text input when buton pressed
+    @IBAction func translateTappedButton(_ sender: Any) {
         toggleActivityIndicator(shown: true)
         guard let text = frenchTranslateTextView.text else { return }
         self.translateService.getTranslation(text: text){ result in
@@ -36,7 +52,7 @@ class TranslateViewController: UIViewController, UITextViewDelegate{
             case .success(let translates):
                 DispatchQueue.main.async {
                     self.toggleActivityIndicator(shown: false)
-                        self.refreshView(data: translates) 
+                    self.refreshView(data: translates)
                 }
             case .failure(let error):
                 self.presentAlert()
@@ -44,26 +60,7 @@ class TranslateViewController: UIViewController, UITextViewDelegate{
             }
         }
     }
-    
-    
-   private func refreshView(data: Translate) {
-    englishTranslateTexView.text = data.data.translations[0].translatedText
-    }
-    
-
-    
-            
-        private func toggleActivityIndicator(shown: Bool) {
-           activityIndicator.isHidden = !shown
-            translateButton.isHidden = shown
-        }
-
-
-    func adjustCorner() {
-        frenchTranslateTextView.layer.cornerRadius = 10
-        englishTranslateTexView.layer.cornerRadius = 10
-        translateButton.layer.cornerRadius = 10
-    }
 }
 
-   
+
+

@@ -10,15 +10,14 @@ import Foundation
 
 class TranslateService {
     
+    // MARK: - Propreties
     private let httpClient: HTTPClient
-
-    
     init(httpClient: HTTPClient = HTTPClient()){
         self.httpClient = httpClient
     }
     
+    // MARK: - Netwok call
     func getTranslation(text: String, callback: @escaping (Result<Translate, NetworkError>) -> Void) {
-        //        guard let q = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
         let q = text
         guard let url = URL(string:"https://translation.googleapis.com/language/translate/v2") else {return}
         
@@ -26,7 +25,7 @@ class TranslateService {
             switch result {
             case .success(let data):
                 callback(.success(data))
-                 
+                
             case .failure(let error):
                 callback(.failure(error))
             }

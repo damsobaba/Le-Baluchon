@@ -22,6 +22,7 @@ final class HTTPEngine {
     }
 
     // MARK: - Methods
+    /// provide response
     func request(baseUrl: URL, parameters: [(String, Any)]?, callback: @escaping HTTPResponse) {
         let url = encode(baseUrl: baseUrl, with: parameters)
         Logger(url: url).show()
@@ -35,7 +36,7 @@ final class HTTPEngine {
         }
         task?.resume()
     }
-
+    /// encode the url
     private func encode(baseUrl: URL, with parameters: [(String, Any)]?) -> URL {
         guard var urlComponents = URLComponents(url: baseUrl, resolvingAgainstBaseURL: false), let parameters = parameters, !parameters.isEmpty else { return baseUrl }
         urlComponents.queryItems = [URLQueryItem]()

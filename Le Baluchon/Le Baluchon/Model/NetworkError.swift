@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+/// error case 
 enum NetworkError: Error, CustomStringConvertible {
     case noData
     case noResponse

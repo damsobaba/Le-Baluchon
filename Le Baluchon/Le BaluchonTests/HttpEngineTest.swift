@@ -12,6 +12,7 @@ import XCTest
 class ClassHttpEngineTests: XCTestCase {
     
     
+     // MARK: - Properties
     func testRequestMethod_WhenErrorIsGiven_ThenShouldReturnAnError() {
         // Given
         let httpEngine = HTTPEngine(session: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error))
@@ -40,5 +41,7 @@ class ClassHttpEngineTests: XCTestCase {
         
         wait(for: [expectation], timeout: 0.01)
     }
-}
+    
+    }
+
 

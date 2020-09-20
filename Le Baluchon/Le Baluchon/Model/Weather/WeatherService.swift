@@ -12,13 +12,14 @@ import Foundation
 
 class WeatherService {
     
+     // MARK: - Propreties
     private let httpClient: HTTPClient
     private var task: URLSessionDataTask?
     
     init(httpClient: HTTPClient = HTTPClient()){
         self.httpClient = httpClient
     }
-    
+    // MARK: - Netwok call
     func getWeather(callback: @escaping (Result<WeatherData, NetworkError>) -> Void) {
         
         guard let url = URL(string:"https://api.openweathermap.org/data/2.5/group") else {return}

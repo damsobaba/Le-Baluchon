@@ -10,13 +10,14 @@ import UIKit
 
 class WeatherViewController: UIViewController {
     
+    // MARK: - Outlets
     @IBOutlet var temperatureLabel: [UILabel]!
     @IBOutlet var skyConditionLabel: [UILabel]!
     @IBOutlet var windConditionLabel: [UILabel]!
     @IBOutlet weak var newYorkSkyImage: UIImageView!
     @IBOutlet weak var fontenaySkyImage: UIImageView!
     
-    
+    // MARK: - Properties
     let weatherService = WeatherService()
     
     
@@ -26,7 +27,7 @@ class WeatherViewController: UIViewController {
         weatherUpdate()
     }
     
-    private func weatherUpdate () {
+    private func weatherUpdate () { 
         self.weatherService.getWeather { result in
             switch result {
             case .success(let weatherDescription):
@@ -41,7 +42,7 @@ class WeatherViewController: UIViewController {
     }
     
     private func refreshViews(weatherData: WeatherData){
-        for i in 0...1 {
+        for i in 0...1 { // loop to update all labels and images
             self.newYorkSkyImage.image = UIImage(named: weatherData.list[0].weather[0].icon)
             self.fontenaySkyImage.image = UIImage(named: weatherData.list[1].weather[0].icon)
             self.temperatureLabel[i].text = String(Int(weatherData.list[i+0].main["temp"]!)) + "°"

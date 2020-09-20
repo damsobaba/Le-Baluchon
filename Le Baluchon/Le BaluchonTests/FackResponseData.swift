@@ -24,11 +24,9 @@ class FakeResponseData {
            let url = bundle.url(forResource: "Translation", withExtension: ".json")!
            return try! Data(contentsOf: url)
        }
-
     static let incorrectData = "erreur".data(using: .utf8)!
 
-    //static let imageData = "image".data(using: .utf8)!
-
+    
     // MARK: - Response
     static let responseOK = HTTPURLResponse(
         url: URL(string: "https://openclassrooms.com")!,
