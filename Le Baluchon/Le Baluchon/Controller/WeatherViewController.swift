@@ -8,17 +8,17 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController {
+final class WeatherViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet var temperatureLabel: [UILabel]!
-    @IBOutlet var skyConditionLabel: [UILabel]!
-    @IBOutlet var windConditionLabel: [UILabel]!
-    @IBOutlet weak var newYorkSkyImage: UIImageView!
-    @IBOutlet weak var fontenaySkyImage: UIImageView!
+    @IBOutlet private var temperatureLabel: [UILabel]!
+    @IBOutlet private var skyConditionLabel: [UILabel]!
+    @IBOutlet private var windConditionLabel: [UILabel]!
+    @IBOutlet private weak var newYorkSkyImage: UIImageView!
+    @IBOutlet private weak var fontenaySkyImage: UIImageView!
     
     // MARK: - Properties
-    let weatherService = WeatherService()
+    private let weatherService = WeatherService()
     
     
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ class WeatherViewController: UIViewController {
     }
     
     private func weatherUpdate () { 
-        self.weatherService.getWeather { result in
+        self.weatherService.getWeather { [unowned self] result in
             switch result {
             case .success(let weatherDescription):
                 DispatchQueue.main.async {
@@ -51,7 +51,7 @@ class WeatherViewController: UIViewController {
         }
     }
     
-    func adjustCorner() {
+   private func adjustCorner() {
         temperatureLabel.forEach { $0.layer.masksToBounds = true; $0.layer.cornerRadius = 5}
         skyConditionLabel.forEach { $0.layer.masksToBounds = true; $0.layer.cornerRadius = 5}
         windConditionLabel.forEach { $0.layer.masksToBounds = true; $0.layer.cornerRadius = 5}

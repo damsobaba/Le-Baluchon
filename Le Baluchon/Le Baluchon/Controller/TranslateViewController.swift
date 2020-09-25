@@ -8,14 +8,19 @@
 
 import UIKit
 
-class TranslateViewController: UIViewController {
+final class TranslateViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak var frenchTranslateTextView: UITextView!
-    @IBOutlet weak var englishTranslateTexView: UITextView!
-    @IBOutlet weak var translateButton: UIButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-     let translateService = TranslateService()
+    
+    @IBOutlet private weak var frenchTranslateTextView: UITextView!
+    @IBOutlet private weak var englishTranslateTexView: UITextView!
+    @IBOutlet private weak var translateButton: UIButton!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    
+     // MARK: - Parameters
+    
+     private let translateService = TranslateService()
+    
     // MARK: - Properties
 
     override func viewDidLoad() {
@@ -32,22 +37,23 @@ class TranslateViewController: UIViewController {
         activityIndicator.isHidden = !shown
         translateButton.isHidden = shown
     }
-    func adjustCorner() {
+    private func adjustCorner() {
         frenchTranslateTextView.layer.cornerRadius = 10
         englishTranslateTexView.layer.cornerRadius = 10
         translateButton.layer.cornerRadius = 10
     }
     
     // MARK: - Actions
-    @IBAction func DismissKeyboard(_ sender: UITapGestureRecognizer) { // enable to leave the keyboard
+    
+    @IBAction private func DismissKeyboard(_ sender: UITapGestureRecognizer) { // enable to leave the keyboard
         frenchTranslateTextView.resignFirstResponder()
         englishTranslateTexView.resignFirstResponder()
     }
     /// translate text input when buton pressed
-    @IBAction func translateTappedButton(_ sender: Any) {
+    @IBAction private func translateTappedButton(_ sender: Any) {
         toggleActivityIndicator(shown: true)
         guard let text = frenchTranslateTextView.text else { return }
-        self.translateService.getTranslation(text: text){ result in
+        self.translateService.getTranslation(text: text){ [unowned self] result in
             switch result {
             case .success(let translates):
                 DispatchQueue.main.async {

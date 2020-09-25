@@ -11,17 +11,17 @@
 import Foundation
 
 // MARK: - Translate
-struct Translate: Codable {
+struct Translate: Decodable {
     let data: DataClass
 }
 
 // MARK: - DataClass
-struct DataClass: Codable {
+struct DataClass: Decodable {
     let translations: [Translation]
 }
 
 // MARK: - Translation
-struct Translation: Codable {
+struct Translation: Decodable {
     let translatedText, model: String
 }
 

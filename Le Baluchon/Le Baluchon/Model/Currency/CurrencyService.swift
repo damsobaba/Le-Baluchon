@@ -9,14 +9,17 @@
 import Foundation
 
 class CurrencyService {
-     // MARK: - Propreties
+    
+    // MARK: - Propreties
+    
     private let httpClient: HTTPClient
     
     init(httpClient: HTTPClient = HTTPClient()){
         self.httpClient = httpClient
     }
     
-  // MARK: - Netwok call
+    // MARK: - Netwok call
+    
     func getCurrency( callback: @escaping (Result<Double, NetworkError>) -> Void) {
         guard let url = URL(string: "http://data.fixer.io/api/latest") else {return}
         httpClient.request(baseUrl: url, parameters: [("access_key", "218e80355485a2d12beb99bfb1a1489c"),("symbols","USD")])  { (result: Result<Currency, NetworkError>) in

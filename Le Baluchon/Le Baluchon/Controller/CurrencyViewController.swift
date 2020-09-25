@@ -8,26 +8,29 @@
 
 import UIKit
 
-class CurrencyViewController: UIViewController, UITextFieldDelegate {
+final class CurrencyViewController: UIViewController, UITextFieldDelegate {
     
-     // MARK: - Outlets
-    @IBOutlet weak var euroTextField: UITextField!
+    // MARK: - Outlets
+    
+    @IBOutlet private weak var euroTextField: UITextField!
     @IBOutlet weak var dollarTextField: UITextField!
     @IBOutlet weak var convertButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Properties
-    let currencyService = CurrencyService()
+    
+    private let currencyService = CurrencyService()
     
     override func viewDidLoad() {
-       // textFieldShouldReturn(euroTextField)
-    super.viewDidLoad()
+        super.viewDidLoad()
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    euroTextField.resignFirstResponder()
+        euroTextField.resignFirstResponder()
         return true
     }
-    func adjustCorner() {
+    
+    private func adjustCorner() {
         convertButton.layer.cornerRadius = 10
     }
     ///enable to show activiy controler while loading
@@ -37,12 +40,13 @@ class CurrencyViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Actions
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) { // enable to leave keuboard
+    
+    @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) { // enable to leave keuboard
         euroTextField.resignFirstResponder()
     }
-    @IBAction func convertTapedButton(_ sender: Any) {
-        self.toggleActivityIndicator(shown: true)
-        self.currencyService.getCurrency { result in
+    @IBAction private func convertTapedButton(_ sender: Any) {
+        toggleActivityIndicator(shown: true)
+        currencyService.getCurrency { [unowned self] result in
             switch result {
             case .success(let rate):
                 DispatchQueue.main.async {

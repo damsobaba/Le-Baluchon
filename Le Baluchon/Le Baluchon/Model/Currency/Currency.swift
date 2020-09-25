@@ -8,7 +8,7 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - Currency
 struct Currency: Decodable {
     let rates: Rates
 }

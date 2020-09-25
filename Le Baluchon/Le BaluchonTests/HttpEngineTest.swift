@@ -8,8 +8,9 @@
 
 //
 import XCTest
-@testable import Le_Baluchon 
-class ClassHttpEngineTests: XCTestCase {
+@testable import Le_Baluchon
+
+final class ClassHttpEngineTests: XCTestCase {
     
     
      // MARK: - Properties

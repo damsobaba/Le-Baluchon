@@ -266,7 +266,7 @@
                                 <rect key="frame" x="20" y="297" width="365" height="34"/>
                                 <color key="backgroundColor" red="0.92009013890000002" green="0.90139073130000003" blue="0.5450341702" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="tel"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="go" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
                                 <connections>
                                     <outlet property="delegate" destination="cbV-k4-rpv" id="L5y-Zy-D5c"/>
                                 </connections>

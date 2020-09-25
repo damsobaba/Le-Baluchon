@@ -11,9 +11,11 @@ import Foundation
 final class HTTPClient {
 
     // MARK: - Properties
+    
     private let httpEngine: HTTPEngine
 
     // MARK: - Initializer
+    
     init(httpEngine: HTTPEngine = HTTPEngine(session: URLSession(configuration: .default))) {
         self.httpEngine = httpEngine
     }

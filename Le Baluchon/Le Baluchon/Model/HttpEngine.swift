@@ -8,11 +8,13 @@
 
 import Foundation
 
+/// create a type to avoid long code
 typealias HTTPResponse = (Data?, HTTPURLResponse?, Error?) -> Void
 
 final class HTTPEngine {
 
     // MARK: - Properties
+    
     private let session: URLSession
     private var task: URLSessionDataTask?
 
@@ -22,6 +24,7 @@ final class HTTPEngine {
     }
 
     // MARK: - Methods
+    
     /// provide response
     func request(baseUrl: URL, parameters: [(String, Any)]?, callback: @escaping HTTPResponse) {
         let url = encode(baseUrl: baseUrl, with: parameters)
