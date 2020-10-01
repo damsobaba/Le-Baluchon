@@ -38,6 +38,7 @@ final class ClassCurrencyTests: XCTestCase {
         currencyService.getCurrency { result  in
             guard case .success(let data) = result else {return}
             XCTAssertNotNil(data)
+            XCTAssertEqual(data,1.18475 )
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.01)

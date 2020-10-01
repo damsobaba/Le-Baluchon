@@ -61,8 +61,10 @@ final class TranslateViewController: UIViewController {
                     self.refreshView(data: translates)
                 }
             case .failure(let error):
+                DispatchQueue.main.async {
                 self.presentAlert()
                 print(error)
+                }
             }
         }
     }

@@ -28,6 +28,7 @@ class CurrencyService {
                 callback(.success(data.rates.usd))
             case .failure(let error):
                 callback(.failure(error))
+                
             }
             
         }

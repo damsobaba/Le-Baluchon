@@ -24,7 +24,7 @@ final class HTTPClient {
         httpEngine.request(baseUrl: baseUrl, parameters: parameters) { data, response, error in
             guard let data = data, error == nil else {
                 callback(.failure(.undecodableData))
-                return
+                return 
             }
             guard let response = response, response.statusCode == 200 else {
                 callback(.failure(.noResponse))

@@ -34,9 +34,10 @@ final class WeatherViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.refreshViews(weatherData: weatherDescription)
                 }
-            case .failure(let error):
+            case .failure(let error):  DispatchQueue.main.async {
                 self.presentAlert()
                 print(error)
+            }
             }
         }
     }

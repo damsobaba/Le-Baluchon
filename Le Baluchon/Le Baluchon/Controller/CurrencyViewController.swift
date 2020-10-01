@@ -27,6 +27,7 @@ final class CurrencyViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         euroTextField.resignFirstResponder()
+        dollarTextField.resignFirstResponder()
         return true
     }
     
@@ -43,7 +44,9 @@ final class CurrencyViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction private func dismissKeyboard(_ sender: UITapGestureRecognizer) { // enable to leave keuboard
         euroTextField.resignFirstResponder()
+        dollarTextField.resignFirstResponder()
     }
+    
     @IBAction private func convertTapedButton(_ sender: Any) {
         toggleActivityIndicator(shown: true)
         currencyService.getCurrency { [unowned self] result in
@@ -56,8 +59,10 @@ final class CurrencyViewController: UIViewController, UITextFieldDelegate {
                     self.dollarTextField.text = String(euroAmount*rate)
                 }
             case .failure(let error):
+                DispatchQueue.main.async {
                 self.presentAlert()
                 print(error)
+                }
             }
         }
     }

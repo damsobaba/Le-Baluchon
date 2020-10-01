@@ -10,7 +10,7 @@ import UIKit
 extension UIViewController {
     ///present allert
     func presentAlert() {
-        let alertVC = UIAlertController(title: "Error", message: "An error as occured", preferredStyle: .alert)
+        let alertVC = UIAlertController(title: "Error", message: "you need signal for the application to work", preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         present(alertVC, animated: true, completion: nil)
     }
