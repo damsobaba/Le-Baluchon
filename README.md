@@ -1,22 +1,35 @@
 # Le-Baluchon
 Application de voyage 
 
-Reciplease
-
-This project is the tenth of the iOS Developer path from OpenClassrooms. See demo.
-Reciplease allows you to search for recipes based on ingredients. You can also keep your favorite recipes as favorites.
-The application is therefore divided into two parts: research and favorites. You can navigate between the two parts thanks to a Tab bar.
+This project is the ninth of the iOS Developer path from OpenClassrooms.
+It is a 3 page app so I used a Tab Bar for the navigation. There is at least 1 network call on each page.
 
 This app is:
 
 responsive in all iPhones in portrait mode,
-dependent on Alamofire, CoreData and the Edamam API,
-managed by CocoaPods,
+available from iOS 11,
 conform to MVC,
 covered by unit tests.
-Installation
+Currency
 
-Please register in the Edamam API to get your own APP_ID and APP_KEY.
-Go to Models/Networking/URLPovider/API to remove the APIKey.swift file and enter your APP_ID and APP_KEY in the APIConstants.swift file.
+We can get the exchange rate between euro (€) and dollar ($) thanks to the fixer.io API.
 
-Search
+<img width="333" alt="Capture d’écran 2021-04-02 à 12 43 40" src="https://user-images.githubusercontent.com/59175268/113409357-64871180-93b1-11eb-9905-f5475feed950.png">
+
+# Translation
+
+Due to the Google Translate API we can translate any language into one of these 4 target languages:
+
+English,
+French,
+German,
+Spanish.
+Moreover the source language is automatically detected.
+<img width="333" alt="Capture d’écran 2021-04-02 à 12 44 33" src="https://user-images.githubusercontent.com/59175268/113409457-97310a00-93b1-11eb-8fc1-53617499646a.png">
+
+# Weather
+
+We can get the weather of any city using the OpenWeathermap API. We just have to add a case in the City enum and specify its name property.
+<img width="333" alt="Capture d’écran 2021-04-02 à 12 43 17" src="https://user-images.githubusercontent.com/59175268/113409531-c6e01200-93b1-11eb-8cbf-05471718e21d.png">
+
+
